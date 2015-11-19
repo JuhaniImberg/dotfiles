@@ -1,0 +1,3 @@
+Install GNU Stow (https://www.gnu.org/software/stow/)
+in the dotfiles directory (~/dotfiles)
+install the wanted configurations (stow emacs)
