@@ -28,14 +28,27 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr ' %F{2}S%f'
 zstyle ':vcs_info:*' unstagedstr ' %F{1}U%f'
-zstyle ':vcs_info:*' formats '(%b%c%u) '
-zstyle ':vcs_info:*' actionformats '(%b %a%c%u) '
-
-precmd () { vcs_info }
+zstyle ':vcs_info:*' formats ' %s:(%b%c%u)'
+zstyle ':vcs_info:*' actionformats ' %s:(%b %a%c%u)'
 
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
 source virtualenvwrapper.sh
 
-PS1='%~ ${vcs_info_msg_0_}%f%# '
+vew_info () {
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+        typeset -g vew_info_msg=''
+    else
+        typeset -g vew_info_msg=" venv:(${VIRTUAL_ENV##*/})"
+    fi
+}
+
+# Prompt
+
+precmd () {
+    vcs_info
+    vew_info
+}
+
+PS1='%~${vew_info_msg}${vcs_info_msg_0_} %# '

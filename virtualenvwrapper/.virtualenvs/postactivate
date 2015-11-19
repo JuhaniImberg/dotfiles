@@ -1,3 +1,5 @@
 #!/bin/zsh
 # This hook is sourced after every virtualenv is activated.
 
+# Don't allow virtualenv to change the PS1
+PS1="$_OLD_VIRTUAL_PS1"
