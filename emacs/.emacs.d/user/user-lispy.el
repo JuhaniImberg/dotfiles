@@ -5,7 +5,8 @@
   (enable-paredit-mode)
   (rainbow-delimiters-mode))
 
-(add-hook-multi (list 'emacs-lisp-mode-hook)
+(add-hook-multi (list 'emacs-lisp-mode-hook
+                      'scheme-mode-hook)
                 'lispy-mode)
 
 (provide 'user-lispy)

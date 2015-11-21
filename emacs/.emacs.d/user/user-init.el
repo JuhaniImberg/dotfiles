@@ -2,6 +2,8 @@
 (require 'user-theme)
 (require 'user-keymap)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (el-get-bundle technomancy/better-defaults)
 (el-get-bundle undo-tree
   (global-undo-tree-mode))

@@ -11,6 +11,8 @@ setopt PROMPT_SUBST
 
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=30000
+export PATH=$PATH:$HOME/bin
+export EDITOR=nano
 
 # Aliases
 alias gst='git status'

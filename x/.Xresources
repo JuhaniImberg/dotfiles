@@ -1,5 +1,41 @@
-URxvt*background: 0
-URxvt*foreground: 7
+! black
+URxvt*color0: #272822
+! red
+URxvt*color1: #f92672
+! green
+URxvt*color2: #a6e22e
+! yellow
+URxvt*color3: #e6db74
+! blue
+URxvt*color4: #66d9ef
+! magenta
+URxvt*color5: #ed5ff0
+! cyan
+URxvt*color6: #a1efe4
+! white
+URxvt*color7: #f8f8f2
+! bright black
+URxvt*color8: #75715e
+! bright red
+URxvt*color9: #fc5c94
+! bright green
+URxvt*color10: #c1f161
+! bright yellow
+URxvt*color11: #f3ea98
+! bright blue
+URxvt*color12: #8de6f7
+! bright magenta
+URxvt*color13: #fe87f4
+! bright cyan
+URxvt*color14: #bbf7ef
+! bright white
+URxvt*color15: #f9f8f5
+
+URxvt*background: #272822
+URxvt*foreground: #f8f8f2
+URxvt*cursorColor: #f8f8f2
+URxvt*scrollColor: #f8f8f2
 URxvt*font: xft:Terminus-8
 URxvt*scrollBar_right: true
 URxvt*scrollstyle: plain
+URxvt*urgentOnBell: true
