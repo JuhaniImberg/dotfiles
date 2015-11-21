@@ -1,0 +1,5 @@
+URxvt*background: 0
+URxvt*foreground: 7
+URxvt*font: xft:Terminus-8
+URxvt*scrollBar_right: true
+URxvt*scrollstyle: plain

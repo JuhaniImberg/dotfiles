@@ -9,6 +9,9 @@ setopt INTERACTIVE_COMMENTS
 setopt EMACS
 setopt PROMPT_SUBST
 
+export HISTFILE=$HOME/.zsh_history
+export SAVEHIST=30000
+
 # Aliases
 alias gst='git status'
 alias ga='git add'
