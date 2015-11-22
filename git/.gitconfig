@@ -1,3 +1,5 @@
 [user]
         name = Juhani Imberg
         email = juhani@imberg.fi
+[push]
+	default = simple
