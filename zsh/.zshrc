@@ -54,6 +54,15 @@ vew_info () {
 precmd () {
     vcs_info
     vew_info
+    typeset -g info_msg=""
+    if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+        typeset -g info_msg="%n@%M "
+    fi
+    dircol=2
+    if [[ "$USER" = "root" ]]; then
+        dircol=1
+    fi
+    info_msg="${info_msg}%F{${dircol}}%~%f"
 }
 
-PS1='%~${vew_info_msg}${vcs_info_msg_0_} %# '
+PS1='${info_msg}${vew_info_msg}${vcs_info_msg_0_} %# '
