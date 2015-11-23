@@ -5,7 +5,7 @@ font pango:Terminus 8
 floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec dmenu_run -fn 'Terminus-8'
+bindsym $mod+d exec dmenu_run -fn 'Terminus-8' -nf '#f8f8f2' -sf '#f8f8f2' -nb '#76715e' -sb '#272822'
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -56,6 +56,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+l exec i3lock -c 272822
 
 mode "resize" {
     bindsym Left resize shrink width 10 px or 10 ppt
@@ -71,13 +72,15 @@ bindsym $mod+r mode "resize"
 bar {
     status_command haapa
     tray_output primary
+    separator_symbol " / "
     colors {
-        background #272822
+        background #76715e
         statusline #f8f8f2
+        separator #272822
         # color_class      border  backg.  text
-        focused_workspace  #76715e #76715e #f8f8f2
-        active_workspace   #272822 #272822 #f8f8f2
-        inactive_workspace #272822 #272822 #f8f8f2
+        focused_workspace  #272822 #272822 #f8f8f2
+        active_workspace   #76715e #76715e #f8f8f2
+        inactive_workspace #76715e #76715e #f8f8f2
         urgent_workspace   #f92672 #f92672 #f8f8f2
     }
 }
@@ -92,3 +95,10 @@ client.urgent           #fc5c94 #f92672 #f8f8f2 #f92672
 client.placeholder      #000000 #0c0c0c #f8f8f2 #000000
 
 client.background       #ffffff
+
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ -c1
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5- -c1
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 10
