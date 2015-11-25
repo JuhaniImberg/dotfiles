@@ -88,9 +88,9 @@ bar {
 new_window pixel
 
 # class                 border  backgr. text    indicator
-client.focused          #272822 #76715e #f8f8f2 #f8f8f2
-client.focused_inactive #76715e #272822 #f8f8f2 #272822
-client.unfocused        #76715e #272822 #f8f8f2 #272822
+client.focused          #76715e #272822 #f8f8f2 #f8f8f2
+client.focused_inactive #272822 #76715e #f8f8f2 #76715e
+client.unfocused        #272822 #76715e #f8f8f2 #76715e
 client.urgent           #fc5c94 #f92672 #f8f8f2 #f92672
 client.placeholder      #000000 #0c0c0c #f8f8f2 #000000
 
