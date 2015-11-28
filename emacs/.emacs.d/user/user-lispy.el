@@ -9,4 +9,7 @@
                       'scheme-mode-hook)
                 'lispy-mode)
 
+(put 'describe 'scheme-indent-function 1)
+(put 'it 'scheme-indent-function 1)
+
 (provide 'user-lispy)
