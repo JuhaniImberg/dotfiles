@@ -49,6 +49,11 @@ vew_info () {
     fi
 }
 
+# chicken
+
+export CHICKEN_REPOSITORY=~/eggs/lib/chicken/7
+mkdir -p $CHICKEN_REPOSITORY
+
 # Prompt
 
 precmd () {
