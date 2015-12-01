@@ -12,6 +12,8 @@
   (global-set-key [remap kill-ring-save] 'easy-kill))
 (el-get-bundle company-mode
   (global-company-mode))
+(el-get-bundle yaml-mode
+  (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode)))
 
 (defun add-hook-multi (hooks fn)
   (mapc (lambda (hook)
