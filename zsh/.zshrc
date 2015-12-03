@@ -21,7 +21,7 @@ alias gd='git diff'
 alias gl='git pull'
 alias gp='git push'
 alias gc='git commit'
-alias glo='git shortlog'
+alias glo="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsh='git show'
 
 alias ls='ls --color'
