@@ -2,7 +2,12 @@
 setopt AUTO_LIST
 setopt AUTO_MENU
 setopt NO_BEEP
-setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt DVORAK
 setopt INTERACTIVE_COMMENTS
@@ -14,6 +19,15 @@ export SAVEHIST=30000
 export PATH=$PATH:$HOME/bin
 export EDITOR=nano
 
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
+zstyle ':completion:*' menu select
+
 # Aliases
 alias gst='git status'
 alias ga='git add'
@@ -21,7 +35,7 @@ alias gd='git diff'
 alias gl='git pull'
 alias gp='git push'
 alias gc='git commit'
-alias glo='git shortlog'
+alias glo="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsh='git show'
 
 alias ls='ls --color'
