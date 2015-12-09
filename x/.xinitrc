@@ -19,6 +19,10 @@ if [ -f "$u_xresources" ]; then
     xrdb -merge "$u_xresources"
 fi
 
+if command -v redshift; then
+    redshift &
+fi
+
 xrandr --dpi 96
 
 exec i3
