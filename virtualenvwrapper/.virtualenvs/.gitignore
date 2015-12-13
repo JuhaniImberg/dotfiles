@@ -1,0 +1,14 @@
+*
+!get_env_details
+!initialize
+!postactivate
+!postdeactivate
+!postmkproject
+!postmkvirtualenv
+!postrmvirtualenv
+!preactivate
+!predeactivate
+!premkproject
+!premkvirtualenv
+!prermvirtualenv
+!.gitignore
