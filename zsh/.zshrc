@@ -68,6 +68,12 @@ vew_info () {
 export CHICKEN_REPOSITORY=~/eggs/lib/chicken/7
 mkdir -p $CHICKEN_REPOSITORY
 
+# go
+
+export GOPATH=~/go
+mkdir -p $GOPATH
+export PATH=$PATH:$GOPATH/bin
+
 # Prompt
 
 precmd () {

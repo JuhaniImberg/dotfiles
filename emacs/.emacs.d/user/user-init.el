@@ -24,6 +24,7 @@
 (require 'user-python)
 (require 'user-web)
 (require 'user-lua)
+(require 'user-go)
 
 (el-get 'sync)
 (provide 'user-init)
