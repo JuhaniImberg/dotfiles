@@ -23,6 +23,7 @@
 (require 'user-lispy)
 (require 'user-python)
 (require 'user-web)
+(require 'user-lua)
 
 (el-get 'sync)
 (provide 'user-init)
