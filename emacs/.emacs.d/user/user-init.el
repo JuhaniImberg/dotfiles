@@ -15,6 +15,7 @@
 (el-get-bundle yaml-mode
   (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode)))
 (el-get-bundle coffee-mode)
+(el-get-bundle markdown-mode)
 
 (defun add-hook-multi (hooks fn)
   (mapc (lambda (hook)
