@@ -23,6 +23,11 @@ if command -v redshift; then
     redshift &
 fi
 
+if command -v autocutsel; then
+    autocutsel -fork &
+    autocutsel -selection PRIMARY -fork &
+fi
+
 xrandr --dpi 96
 
 exec i3
