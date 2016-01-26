@@ -53,7 +53,7 @@ zstyle ':vcs_info:*' actionformats ' %s:(%b %a%c%u)'
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
-[[ -x virtualenvwrapper.sh ]] && source virtualenvwrapper.sh
+hash virtualenvwrapper.sh 2>/dev/null && source virtualenvwrapper.sh
 
 vew_info () {
     if [[ -z "$VIRTUAL_ENV" ]]; then
