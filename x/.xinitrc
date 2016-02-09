@@ -19,6 +19,11 @@ if [ -f "$u_xresources" ]; then
     xrdb -merge "$u_xresources"
 fi
 
+gpg-connect-agent /bye || true
+if [ -e "$HOME/.gnupg/S.gpg-agent.ssh" ]; then
+    export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+fi
+
 if command -v redshift; then
     redshift &
 fi
