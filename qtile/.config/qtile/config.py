@@ -1,3 +1,5 @@
+import glob
+
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
@@ -99,70 +101,87 @@ sep_defaults = dict(
     size_percent=100,
 )
 
+widgets = [
+    widget.GroupBox(
+        borderwidth=1,
+        disable_drag=True,
+        rounded=False,
+        padding_x=3,
+        highlight_method="line",
+        active=theme["base07"],
+        inactive=theme["base02"],
+        this_current_screen_border=theme["base00"],
+        highlight_color=[theme["base09"], theme["base0A"]],
+        urgent_border=theme["base08"]
+    ),
+    widget.Spacer(length=5),
+    widget.Prompt(
+        cursor_color=theme["base04"],
+        bell_style="visual",
+        visual_bell_color=theme["base08"],
+        padding=6
+    ),
+    widget.Spacer(length=5),
+    widget.WindowName(),
+    widget.Systray(),
+    widget.Sep(**sep_defaults),
+    widget.CPUGraph(
+        type="linefill",
+        graph_color=theme["base08"],
+        fill_color=theme["base08"],
+        **graph_defaults
+    ),
+    widget.Sep(**sep_defaults),
+    widget.MemoryGraph(
+        type="linefill",
+        graph_color=theme["base0D"],
+        fill_color=theme["base0D"],
+        **graph_defaults
+    ),
+    widget.Sep(**sep_defaults),
+    widget.Volume(
+        foreground=theme["base0B"],
+        padding=6
+    ),
+]
+
+has_battery = not not glob.glob("/sys/class/power_supply/BAT*")
+if has_battery:
+    widgets.extend([
+        widget.Sep(**sep_defaults),
+        widget.Battery(
+            foreground=theme["base0E"],
+            low_foreground=theme["base0E"],
+            discharge_char='▼',
+            charge_char='▲',
+            padding=6
+        ),
+    ])
+
+has_wlan = hasattr(widget, "Wlan")
+if has_wlan:
+    widgets.extend([
+        widget.Sep(**sep_defaults),
+        widget.Wlan(
+            interface="wlo1",
+            format='{essid} {percent:2.0%}',
+            foreground=theme["base0F"]
+        ),
+    ])
+
+widgets.extend([
+    widget.Sep(**sep_defaults),
+    widget.Clock(
+        padding=6,
+        format='%Y-%m-%d %H:%M:%S'
+    )
+])
+
+
 screens = [
     Screen(
         bottom=bar.Bar(
-            widgets=[
-                widget.GroupBox(
-                    borderwidth=1,
-                    disable_drag=True,
-                    rounded=False,
-                    padding_x=3,
-                    highlight_method="line",
-                    active=theme["base07"],
-                    inactive=theme["base02"],
-                    this_current_screen_border=theme["base00"],
-                    highlight_color=[theme["base09"], theme["base0A"]],
-                    urgent_border=theme["base08"]
-                ),
-                widget.Spacer(length=5),
-                widget.Prompt(
-                    cursor_color=theme["base04"],
-                    bell_style="visual",
-                    visual_bell_color=theme["base08"],
-                    padding=6
-                ),
-                widget.Spacer(length=5),
-                widget.WindowName(),
-                widget.Systray(),
-                widget.Sep(**sep_defaults),
-                widget.CPUGraph(
-                    type="linefill",
-                    graph_color=theme["base08"],
-                    fill_color=theme["base08"],
-                    **graph_defaults
-                ),
-                widget.Sep(**sep_defaults),
-                widget.MemoryGraph(
-                    type="linefill",
-                    graph_color=theme["base0D"],
-                    fill_color=theme["base0D"],
-                    **graph_defaults
-                ),
-                widget.Sep(**sep_defaults),
-                widget.Volume(
-                    foreground=theme["base0B"],
-                    padding=6),
-                widget.Sep(**sep_defaults),
-                widget.Battery(
-                    foreground=theme["base0E"],
-                    low_foreground=theme["base0E"],
-                    discharge_char='▼',
-                    charge_char='▲',
-                    padding=6
-                ),
-                widget.Sep(**sep_defaults),
-                widget.Wlan(
-                    interface="wlo1",
-                    format='{essid} {percent:2.0%}',
-                    foreground=theme["base0F"]
-                ),
-                widget.Sep(**sep_defaults),
-                widget.Clock(
-                    padding=6,
-                    format='%Y-%m-%d %H:%M:%S'
-                ),
-            ],
+            widgets=widgets,
             size=16,
             background=[theme["base00"], theme["base01"]]
         ),
