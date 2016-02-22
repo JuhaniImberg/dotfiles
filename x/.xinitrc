@@ -35,4 +35,8 @@ fi
 
 xrandr --dpi 96
 
-exec i3
+if [ -x "$HOME/.virtualenvs/qtile/bin/qtile" ]; then
+    exec ~/.virtualenvs/qtile/bin/qtile
+else
+    exec i3
+fi
