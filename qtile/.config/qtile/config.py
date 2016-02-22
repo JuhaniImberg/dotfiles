@@ -1,4 +1,5 @@
 import glob
+import subprocess
 
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.command import lazy
@@ -160,14 +161,20 @@ if has_battery:
 
 has_wlan = hasattr(widget, "Wlan")
 if has_wlan:
-    widgets.extend([
-        widget.Sep(**sep_defaults),
-        widget.Wlan(
-            interface="wlo1",
-            format='{essid} {percent:2.0%}',
-            foreground=theme["base0F"]
-        ),
-    ])
+    interface_name = None
+    interface_raw = subprocess.check_output(["iwconfig"], universal_newlines=True)
+    if interface_raw:
+        interface_name = (interface_raw.split("\n")[0]).split(" ")[0]
+
+    if interface_name:
+        widgets.extend([
+            widget.Sep(**sep_defaults),
+            widget.Wlan(
+                interface=interface_name,
+                format='{essid} {percent:2.0%}',
+                foreground=theme["base0F"]
+            ),
+        ])
 
 widgets.extend([
     widget.Sep(**sep_defaults),
