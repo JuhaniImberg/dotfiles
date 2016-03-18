@@ -35,6 +35,10 @@ fi
 
 xrandr --dpi 96
 
+if command -v feh; then
+    feh --bg-scale ~/Pictures/background.png
+fi
+
 if [ -x "$HOME/.virtualenvs/qtile/bin/qtile" ]; then
     exec ~/.virtualenvs/qtile/bin/qtile
 else
