@@ -2,13 +2,14 @@
 setopt AUTO_LIST
 setopt AUTO_MENU
 setopt NO_BEEP
+setopt APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_VERIFY
+setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
 setopt DVORAK
 setopt INTERACTIVE_COMMENTS
 setopt EMACS
@@ -16,6 +17,7 @@ setopt PROMPT_SUBST
 
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=30000
+export HISTSIZE=30000
 export PATH=$PATH:$HOME/bin
 export EDITOR=nano
 
