@@ -2,7 +2,7 @@
 (require 'user-theme)
 (require 'user-keymap)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (global-auto-revert-mode 1)
 
 (el-get-bundle technomancy/better-defaults)
@@ -17,6 +17,8 @@
 (el-get-bundle coffee-mode)
 (el-get-bundle markdown-mode)
 (el-get-bundle jade-mode)
+(el-get-bundle ws-butler
+  (ws-butler-global-mode))
 
 (defun add-hook-multi (hooks fn)
   (mapc (lambda (hook)
