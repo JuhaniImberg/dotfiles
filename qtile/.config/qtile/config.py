@@ -1,7 +1,7 @@
 import glob
 import subprocess
 
-from libqtile.config import Key, Screen, Group, Drag, Click
+from libqtile.config import Key, Screen, Group, Drag, Click, Match
 from libqtile.command import lazy
 from libqtile import layout, bar, widget
 
@@ -47,6 +47,9 @@ for ind, group in enumerate(groups):
         Key([mod], group_key, lazy.group[group.name].toscreen()),
         Key([mod, "shift"], group_key, lazy.window.togroup(group.name))
     ])
+
+groups[6].matches = [Match(wm_class=["Firefox"])]
+
 
 # https://github.com/chriskempson/base16-builder/blob/master/schemes/monokai.yml
 theme = dict(
