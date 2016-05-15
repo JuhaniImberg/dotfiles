@@ -35,6 +35,10 @@ fi
 
 xrandr --dpi 96
 
+if command -v mate-session; then
+    exec mate-session
+fi
+
 if command -v feh; then
     feh --bg-scale ~/Pictures/background.png
 fi
