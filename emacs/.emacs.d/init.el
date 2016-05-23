@@ -2,6 +2,13 @@
 
 ;;;; General initialization
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
@@ -29,16 +36,25 @@
   :config (add-hook 'prog-mode-hook 'idle-highlight-mode))
 
 (use-package powerline
-  :config (use-package moe-theme-switcher
+  :config (use-package moe-theme
             :init (progn
                     (setq calendar-latitude +60)
                     (setq calendar-longitude +25))
             :config (progn
                       (moe-theme-set-color 'green)
-                      (powerline-moe-theme))))
+                      (powerline-moe-theme)
+                      (moe-dark))))
 
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
+(setq custom-file "~/.emacs-custom.el")
+(load custom-file)
+
+(custom-set-faces
+ '(prodigy-red-face ((((class color)) (:foreground "#ff4b4b"))))
+ '(prodigy-yellow-face ((((class color)) (:foreground "#fce94f"))))
+ '(prodigy-green-face ((((class color)) (:foreground "#afff00")))))
 
 ;;;; Non-language packages
 
@@ -99,6 +115,9 @@
 (use-package easy-kill
   :bind ([remap kill-ring-save] . easy-kill))
 
+(use-package editorconfig
+  :config (editorconfig-mode 1))
+
 ;;;; Language packages
 
 (use-package web-mode
@@ -115,3 +134,5 @@
 (use-package coffee-mode)
 (use-package go-mode)
 (use-package lua-mode)
+(use-package virtualenvwrapper
+  :init (setq venv-location "~/.virtualenvs/"))

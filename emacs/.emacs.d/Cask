@@ -35,4 +35,5 @@
 (depends-on "lua-mode")
 (depends-on "go-mode")
 (depends-on "coffee-mode")
-
+(depends-on "virtualenvwrapper")
+(depends-on "editorconfig")
