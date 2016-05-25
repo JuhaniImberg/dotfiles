@@ -30,6 +30,7 @@
 (depends-on "yaml-mode")
 (depends-on "markdown-mode")
 (depends-on "elm-mode")
+(depends-on "haskell-mode")
 (depends-on "company-jedi")
 (depends-on "powerline")
 (depends-on "lua-mode")

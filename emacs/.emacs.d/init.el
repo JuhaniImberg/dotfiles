@@ -127,7 +127,8 @@
 
 (use-package yaml-mode)
 (use-package markdown-mode)
-(use-package elm-mode)
+(use-package elm-mode
+  :config (add-to-list 'company-backends 'company-elm))
 (use-package company-jedi
   :init (setq python-environment-directory "~/.virtualenvs/")
   :config (add-to-list 'company-backends 'company-jedi))
@@ -136,3 +137,4 @@
 (use-package lua-mode)
 (use-package virtualenvwrapper
   :init (setq venv-location "~/.virtualenvs/"))
+(use-package haskell-mode)
