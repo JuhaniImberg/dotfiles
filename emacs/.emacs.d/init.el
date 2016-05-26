@@ -58,6 +58,9 @@
 
 ;;;; Non-language packages
 
+(use-package projectile
+  :config (projectile-global-mode))
+
 (use-package smex
   :config (smex-initialize)
   :bind ("M-x" . smex))
@@ -118,12 +121,24 @@
 (use-package editorconfig
   :config (editorconfig-mode 1))
 
+(use-package diff-hl
+  :config (progn
+            (global-diff-hl-mode)
+            (diff-hl-flydiff-mode)
+            (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+
 ;;;; Language packages
 
 (use-package web-mode
   :mode (("\\.html?\\'" . web-mode)
-         ("\\.js\\'" . web-mode)
          ("\\.css\\'" . web-mode)))
+
+(use-package js2-mode
+  :mode (("\\.js\\'" . js2-mode)))
+
+(use-package scss-mode
+  :init (setq scss-compile-at-save nil)
+  :mode (("\\.scss\\'" . scss-mode)))
 
 (use-package yaml-mode)
 (use-package markdown-mode)
