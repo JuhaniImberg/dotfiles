@@ -28,6 +28,7 @@
 (setq column-number-mode t)
 (setq show-trailing-whitespace t)
 (set-frame-font "Terminus-8" nil t)
+(windmove-default-keybindings)
 
 (bind-key "C-x <up>" 'next-multiframe-window)
 (bind-key "C-x <down>" 'previous-multiframe-window)
