@@ -30,6 +30,7 @@ keys = [
     # Applications
 
     Key([mod], "Return", lazy.spawn("urxvt")),
+    Key([mod], "l", lazy.spawn("i3lock -c 000000")),
 
     # Application management
 
