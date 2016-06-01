@@ -135,7 +135,7 @@
          ("\\.css\\'" . web-mode)))
 
 (use-package js2-mode
-  :mode (("\\.js\\'" . js2-mode)))
+  :mode (("\\.js\\'" . js2-jsx-mode)))
 
 (use-package scss-mode
   :init (setq scss-compile-at-save nil)
