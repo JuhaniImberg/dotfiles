@@ -135,6 +135,8 @@
          ("\\.css\\'" . web-mode)))
 
 (use-package js2-mode
+  :init (progn
+          (setq js2-strict-trailing-comma-warning nil))
   :mode (("\\.js\\'" . js2-jsx-mode)))
 
 (use-package scss-mode
