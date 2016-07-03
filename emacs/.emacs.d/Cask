@@ -43,4 +43,4 @@
 (depends-on "scss-mode")
 (depends-on "diff-hl")
 (depends-on "scad-mode")
-
+(depends-on "fsharp-mode")

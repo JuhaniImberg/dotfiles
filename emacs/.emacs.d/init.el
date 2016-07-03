@@ -156,3 +156,4 @@
 (use-package virtualenvwrapper
   :init (setq venv-location "~/.virtualenvs/"))
 (use-package haskell-mode)
+(use-package fsharp-mode)
