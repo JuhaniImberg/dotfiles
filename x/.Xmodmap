@@ -20,7 +20,7 @@
 ! on X11 login.
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! Few minor modifications by Juhani Imberg
+! Few minor modifications by Minttu Imberg
 
 keycode  49 = grave             asciitilde          dead_tilde              dead_caron
 
