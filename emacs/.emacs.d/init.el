@@ -165,8 +165,12 @@
   :config (add-to-list 'company-backends 'company-elm))
 
 (use-package company-jedi
-  :init (setq python-environment-directory "~/.virtualenvs/")
-  :config (add-to-list 'company-backends 'company-jedi))
+  :init (progn
+          (setq python-environment-directory "~/.virtualenvs/")
+          (setq jedi:use-shortcuts t))
+  :config (progn
+            (add-to-list 'company-backends 'company-jedi)
+            (add-hook 'python-mode-hook 'jedi:setup)))
 
 (use-package coffee-mode)
 
