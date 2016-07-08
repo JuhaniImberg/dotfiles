@@ -82,7 +82,9 @@
   :mode ("Cask" . emacs-lisp-mode))
 
 (use-package smartparens
-  :init (smartparens-global-mode)
+  :init (progn
+          (require 'smartparens-config)
+          (smartparens-global-mode))
   :bind (("C-M-a" . sp-beginning-of-sexp)
          ("C-M-e" . sp-end-of-sexp)
          ("C-<down>" . sp-down-sexp)
@@ -118,6 +120,11 @@
          ("C-c \"" . wrap-with-double-quotes)
          ("C-c _"  . wrap-with-underscores)
          ("C-c `"  . wrap-with-back-quotes)))
+
+(defadvice sp-kill-hybrid-sexp (after kill-line-cleanup-whitespace activate compile)
+  "cleanup whitespace on sp-kill-hybrid-sexp (kill-line)"
+  (if (not (bolp))
+      (delete-region (point) (progn (skip-chars-forward " \t") (point)))))
 
 (use-package popwin
   :config (popwin-mode 1))
