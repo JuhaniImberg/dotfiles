@@ -69,6 +69,9 @@
                   '(("*ag*" . search)))
             (purpose-compile-user-configuration)))
 
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "sensible-browser")
+
 ;;;; Non-language packages
 
 (use-package projectile
@@ -146,6 +149,11 @@
             (global-diff-hl-mode)
             (diff-hl-flydiff-mode)
             (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
+
+(use-package git-link
+  :init (progn
+          (setq git-link-open-in-browser t)
+          (setq git-link-use-commit t)))
 
 ;;;; Language packages
 

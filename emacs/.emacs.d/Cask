@@ -49,3 +49,4 @@
             :git "https://github.com/ppareit/graphviz-dot-mode.git"
             :files ("*.el"))
 (depends-on "tide")
+(depends-on "git-link")
