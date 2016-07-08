@@ -44,3 +44,8 @@
 (depends-on "diff-hl")
 (depends-on "scad-mode")
 (depends-on "fsharp-mode")
+(depends-on "window-purpose")
+(depends-on "graphviz-dot-mode"
+            :git "https://github.com/ppareit/graphviz-dot-mode.git"
+            :files ("*.el"))
+(depends-on "tide")

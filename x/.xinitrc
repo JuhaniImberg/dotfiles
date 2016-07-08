@@ -39,6 +39,10 @@ if command -v feh; then
     feh --bg-scale ~/Pictures/background.png
 fi
 
+if [ -x "$HOME/src/srandrd/srandrd" ]; then
+    ~/src/srandrd/srandrd "$HOME/.srandr"
+fi
+
 if [ -x "$HOME/.virtualenvs/qtile/bin/qtile" ]; then
     exec ~/.virtualenvs/qtile/bin/qtile
 else

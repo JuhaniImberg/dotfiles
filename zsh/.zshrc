@@ -90,6 +90,11 @@ export GOPATH=~/go
 mkdir -p $GOPATH
 export PATH=$PATH:$GOPATH/bin
 
+# nvm
+
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
 # Prompt
 
 precmd () {

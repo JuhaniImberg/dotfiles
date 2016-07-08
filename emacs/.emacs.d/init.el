@@ -57,6 +57,18 @@
  '(prodigy-yellow-face ((((class color)) (:foreground "#fce94f"))))
  '(prodigy-green-face ((((class color)) (:foreground "#afff00")))))
 
+(use-package window-purpose
+  :config (progn
+            (purpose-mode)
+            (require 'window-purpose-x)
+            (purpose-x-magit-single-on)
+            (setq purpose-user-mode-purposes
+                  '((prodigy-mode . prodigy)
+                    (web-mode . edit)))
+            (setq purpose-user-name-purposes
+                  '(("*ag*" . search)))
+            (purpose-compile-user-configuration)))
+
 ;;;; Non-language packages
 
 (use-package projectile
@@ -132,7 +144,9 @@
 
 (use-package web-mode
   :mode (("\\.html?\\'" . web-mode)
-         ("\\.css\\'" . web-mode)))
+         ("\\.css\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode)))
 
 (use-package js2-mode
   :init (progn
@@ -144,16 +158,35 @@
   :mode (("\\.scss\\'" . scss-mode)))
 
 (use-package yaml-mode)
+
 (use-package markdown-mode)
+
 (use-package elm-mode
   :config (add-to-list 'company-backends 'company-elm))
+
 (use-package company-jedi
   :init (setq python-environment-directory "~/.virtualenvs/")
   :config (add-to-list 'company-backends 'company-jedi))
+
 (use-package coffee-mode)
+
 (use-package go-mode)
+
 (use-package lua-mode)
+
 (use-package virtualenvwrapper
   :init (setq venv-location "~/.virtualenvs/"))
+
 (use-package haskell-mode)
+
 (use-package fsharp-mode)
+
+(use-package graphviz-dot-mode)
+
+(use-package tide
+  :config (progn
+            (add-hook 'typescript-mode-hook 'tide-setup)
+            (add-hook 'web-mode-hook
+                      (lambda ()
+                        (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                          (tide-setup))))))
