@@ -179,7 +179,12 @@
 (use-package lua-mode)
 
 (use-package virtualenvwrapper
-  :init (setq venv-location "~/.virtualenvs/"))
+  :init (setq venv-location "~/.virtualenvs/")
+  :config (progn
+            (add-hook 'python-mode-hook (lambda ()
+                                          (hack-local-variables)
+                                          (when (boundp 'project-venv-name)
+                                            (venv-workon project-venv-name))))))
 
 (use-package haskell-mode)
 
