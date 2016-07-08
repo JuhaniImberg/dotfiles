@@ -38,9 +38,10 @@
 
 (use-package powerline
   :config (use-package moe-theme
-            :init (progn
-                    (setq calendar-latitude +60)
-                    (setq calendar-longitude +25))
+            :init (setq calendar-latitude +60
+                        calendar-longitude +25
+                        pos-tip-background-color "#4e4e4e"
+                        pos-tip-foreground-color "#c6c6c6")
             :config (progn
                       (moe-theme-set-color 'green)
                       (powerline-moe-theme)
@@ -134,6 +135,9 @@
 
 (use-package company
   :config (global-company-mode))
+
+(use-package company-quickhelp
+  :config (company-quickhelp-mode 1))
 
 (use-package undo-tree
   :config (global-undo-tree-mode))
