@@ -26,7 +26,7 @@
 (global-auto-revert-mode 1)
 (setq inhibit-startup-message t)
 (setq column-number-mode t)
-(setq show-trailing-whitespace t)
+(setq-default show-trailing-whitespace t)
 (set-frame-font "Terminus-8" nil t)
 (windmove-default-keybindings)
 
@@ -158,6 +158,9 @@
   :init (progn
           (setq git-link-open-in-browser t)
           (setq git-link-use-commit t)))
+
+(use-package ws-butler
+  :config (ws-butler-global-mode 1))
 
 ;;;; Language packages
 

@@ -51,3 +51,4 @@
 (depends-on "tide")
 (depends-on "git-link")
 (depends-on "company-quickhelp")
+(depends-on "ws-butler")
