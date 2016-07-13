@@ -52,3 +52,5 @@
 (depends-on "git-link")
 (depends-on "company-quickhelp")
 (depends-on "ws-butler")
+(depends-on "visual-regexp")
+(depends-on "visual-regexp-steroids")

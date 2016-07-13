@@ -155,12 +155,20 @@
             (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)))
 
 (use-package git-link
-  :init (progn
-          (setq git-link-open-in-browser t)
-          (setq git-link-use-commit t)))
+  :init (setq git-link-open-in-browser t
+              git-link-use-commit t))
 
 (use-package ws-butler
   :config (ws-butler-global-mode 1))
+
+(use-package visual-regexp-steroids
+  :bind (("C-c r" . vr/replace)
+         ("C-c q" . vr/query-replace)
+         ("M-%"   . vr/query-replace)
+         ("C-c m" . vr/mc-mark)
+         ("C-r"   . vr/isearch-backward)
+         ("C-s"   . vr/isearch-forward))
+  :init (setq vr/match-separator-use-custom-face t))
 
 ;;;; Language packages
 
@@ -187,9 +195,8 @@
   :config (add-to-list 'company-backends 'company-elm))
 
 (use-package company-jedi
-  :init (progn
-          (setq python-environment-directory "~/.virtualenvs/")
-          (setq jedi:use-shortcuts t))
+  :init (setq python-environment-directory "~/.virtualenvs/"
+              jedi:use-shortcuts t)
   :config (progn
             (add-to-list 'company-backends 'company-jedi)
             (add-hook 'python-mode-hook 'jedi:setup)))
