@@ -38,6 +38,15 @@ keys = [
     Key([mod, "shift"], "e", lazy.shutdown()),
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod], "d", lazy.spawncmd()),
+
+    # Media keys
+
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -D pulse sset Master 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -D pulse sset Master 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer -D pulse set Master 1+ toggle")),
+    Key([], "XF86AudioMicMute", lazy.spawn("amixer -D pulse set Capture 1+ toggle")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10")),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -146,7 +155,8 @@ widgets = [
     widget.Sep(**sep_defaults),
     widget.Volume(
         foreground=theme["base0B"],
-        padding=6
+        padding=6,
+        device='pulse'
     ),
 ]
 

@@ -65,7 +65,8 @@
             (purpose-x-magit-single-on)
             (setq purpose-user-mode-purposes
                   '((prodigy-mode . prodigy)
-                    (web-mode . edit)))
+                    (web-mode . edit)
+                    (scss-mode . edit)))
             (setq purpose-user-name-purposes
                   '(("*ag*" . search)))
             (purpose-compile-user-configuration)))
