@@ -173,8 +173,13 @@
          ("C-s"   . vr/isearch-forward))
   :init (setq vr/match-separator-use-custom-face t))
 
-;;;; Language packages
+(use-package rainbow-delimiters
+  :init (progn
+          (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+          (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)))
 
+;;;; Language packages
+(+ 1 2)
 (use-package web-mode
   :mode (("\\.html?\\'" . web-mode)
          ("\\.css\\'" . web-mode)
