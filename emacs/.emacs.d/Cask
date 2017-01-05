@@ -54,3 +54,4 @@
 (depends-on "ws-butler")
 (depends-on "visual-regexp")
 (depends-on "visual-regexp-steroids")
+(depends-on "clojure-mode")
