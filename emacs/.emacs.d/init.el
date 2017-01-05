@@ -89,7 +89,9 @@
 (use-package smartparens
   :init (progn
           (require 'smartparens-config)
-          (smartparens-global-mode))
+          (smartparens-global-mode)
+          (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
+          (add-hook 'emacs-lisp-mode-hook #'smartparens-strict-mode))
   :bind (("C-M-a" . sp-beginning-of-sexp)
          ("C-M-e" . sp-end-of-sexp)
          ("C-<down>" . sp-down-sexp)
