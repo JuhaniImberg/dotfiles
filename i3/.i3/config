@@ -74,27 +74,24 @@ bar {
     tray_output primary
     separator_symbol " / "
     colors {
-        background #76715e
-        statusline #f8f8f2
-        separator #272822
-        # color_class      border  backg.  text
-        focused_workspace  #272822 #272822 #f8f8f2
-        active_workspace   #76715e #76715e #f8f8f2
-        inactive_workspace #76715e #76715e #f8f8f2
-        urgent_workspace   #f92672 #f92672 #f8f8f2
+        separator #333333
+        background #2c001e
+        statusline #aea79f
+        focused_workspace #dd4814 #dd4814 #ffffff
+        active_workspace #902a07 #902a07 #aea79f
+        inactive_workspace #902a07 #902a07 #aea79f
+        urgent_workspace #77216f #77216f #ffffff
     }
 }
 
+client.placeholder #000000 #0c0c0c #f8f8f2 #000000
+client.background #ffffff
+client.focused #dd4814 #dd4814 #ffffff #902a07
+client.focused_inactive #5e2750 #5e2750 #aea79f #5e2750
+client.unfocused #5e2750 #5e2750 #aea79f #5e2750
+client.urgent #77216f #77216f #ffffff #efb73e
+
 new_window pixel
-
-# class                 border  backgr. text    indicator
-client.focused          #76715e #272822 #f8f8f2 #f8f8f2
-client.focused_inactive #272822 #76715e #f8f8f2 #76715e
-client.unfocused        #272822 #76715e #f8f8f2 #76715e
-client.urgent           #fc5c94 #f92672 #f8f8f2 #f92672
-client.placeholder      #000000 #0c0c0c #f8f8f2 #000000
-
-client.background       #ffffff
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ -c1
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- -c1
